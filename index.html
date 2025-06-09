@@ -132,10 +132,76 @@
           (This is just a demo, the full SanoAI chatbot is accessible on sign up.)
         </strong>  
       </div>
-      <input class="text" placeholder="Write something...">
-      <button class="cta">Send</button>
+      <div id="chat-box">
+        <strong>Sample Questions</strong> <br>
+        <small>What is our mission? <br>
+                What is SanoAI? <br>
+                Who is the founder? <br>
+                Why use SanoAI? <br>
+                How do I get started?
+        </small></div>
+      <div id="chat-box" class="chat-messages"></div>
+      <input id="user-input" class="text" placeholder="Write something...">
+      <button id="send-btn" class="cta">Send</button>
       <p><small>Powered by AI</small></p>
     </div>
+    <script>
+      
+    let aboutData = "";
+
+    const input = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    const chatBox = document.getElementById('chat-box');
+
+    sendBtn.disabled = true; 
+
+    fetch('about.txt')
+      .then(res => res.text())
+      .then(data => {
+        aboutData = data;
+        sendBtn.disabled = false;
+      })
+
+    sendBtn.onclick = async () => {
+      const message = input.value.trim();
+      if (!message || !aboutData) return;
+
+      chatBox.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+      input.value = '';
+
+      const greetings = ["hi", "hello", "hey"];
+      if (greetings.includes(message.toLowerCase())) {
+      chatBox.innerHTML += `<div><strong>SanoAI:</strong> Hello! Ask me anything about our mission, vision, or how we started.</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+      return;
+      }
+
+      const messages = [
+        {
+          role: "system",
+          content:
+          `You are a helpful AI assistant for SanoAI.
+          Use the context below to answer questions about SanoAI's mission, origin, team and services.
+          If the user asks something unrelated, respond with: 'I can only answer questions about SanoAI's goals, story, or features.'
+
+          Context:
+          ${aboutData}
+        `.trim()
+      },
+        {
+          role: "user",
+          content: message
+        }
+      ];
+
+    const response = await puter.ai.chat(messages);
+    const reply =
+    response?.completion || response?.text || "Sorry, I couldn't find the answer to that. Try asking about SanoAI's mission or services.";
+
+      chatBox.innerHTML += `<div><strong>SanoAI:</strong> ${reply}</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    };
+  </script>
   </div>
 
   <div class="section">

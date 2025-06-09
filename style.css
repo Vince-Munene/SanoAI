@@ -81,11 +81,20 @@ body {
   background: white;
   }
 
-.chat-preview { background: #f1f1f1;
+.chat-preview { background: #e2dfdf;
   padding: 10px;
   border-radius: 5px; 
   margin-bottom: 10px;
   }
+
+.chat-messages {
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 1rem;
+  background:  #e2dfdf;
+  border-radius: 8px;
+}
 
 .form { 
   display: flex;

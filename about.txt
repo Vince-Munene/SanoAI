@@ -1,0 +1,20 @@
+[INFO]
+Name: SanoAI
+
+Founder: Vince Munene
+
+Mission: Our mission is to Our mission is to empower individuals with intelligent tools that promote self-awareness, mental clarity, and personal growth.
+
+Vision: Our vision is to make mental wellness more approachable, personal, and consistent through accessible technology. We believe that self-understanding is the key to better decisions, deeper relationships, and a healthier life.
+
+What it does: SanoAI is a health and wellness AI assistant designed to help users better understand themselves, build emotional awareness, and track their mental health over time. It was founded by Vince Munene out of a desire to combine emotional intelligence, technology, and self-reflection into one seamless platform.
+
+Why use it: SanoAI is perfect for people who are introspective, seeking self-improvement, or struggling to maintain regular journaling habits. It’s also useful for therapists and coaches who want to recommend a structured journaling tool to their clients.
+
+What is SanoAI: SanoAI is a health and wellness AI assistant designed to help users better understand themselves, build emotional awareness, and track their mental health over time. It was founded by Vince Munene out of a desire to combine emotional intelligence, technology, and self-reflection into one seamless platform.
+
+About: At its core, SanoAI provides a digital journaling experience guided by an AI that listens, prompts deeper thinking, and helps users spot patterns in their emotional and behavioral habits. Whether you're tracking your mood, reflecting on your day, or exploring who you are, SanoAI is your companion in the journey.
+
+Why SanoAI: SanoAI is perfect for people who are introspective, seeking self-improvement, or struggling to maintain regular journaling habits. It’s also useful for therapists and coaches who want to recommend a structured journaling tool to their clients.
+
+Get Started: Want to get started? Just click the “Sign Up” button on our homepage to create your account and unlock the full features of SanoAI’s journaling assistant.
