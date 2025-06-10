@@ -137,62 +137,51 @@
       <p><small>Powered by AI</small></p>
     </div>
     <script>
+  const input = document.getElementById('user-input');
+  const sendBtn = document.getElementById('send-btn');
+  const chatBox = document.getElementById('chat-box');
 
-    let aboutData = "";
+  sendBtn.onclick = () => {
+    const message = input.value.trim().toLowerCase();
+    if (!message) return;
 
-    const input = document.getElementById('user-input');
-    const sendBtn = document.getElementById('send-btn');
-    const chatBox = document.getElementById('chat-box');
+    chatBox.innerHTML += `<div><strong>You:</strong> ${input.value}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
 
-    sendBtn.disabled = true; 
+     input.value = '';
 
-    fetch('about.txt')
-      .then(res => res.text())
-      .then(data => {
-        aboutData = data;
-        sendBtn.disabled = false;
-      })
+    let reply = "I can only answer questions about SanoAI's mission, vision, story, or features.";
 
-    sendBtn.onclick = async () => {
-      const message = input.value.trim();
-      if (!message || !aboutData) return;
-
-      chatBox.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
-      input.value = '';
-
-      const greetings = ["hi", "hello", "hey"];
-      if (greetings.includes(message.toLowerCase())) {
-      chatBox.innerHTML += `<div><strong>SanoAI:</strong> Hello! Ask me anything about our mission, vision, or how we started.</div>`;
-      chatBox.scrollTop = chatBox.scrollHeight;
-      return;
-      }
-
-      const messages = [
-        {
-          role: "system",
-          content:
-          `You are a helpful AI assistant for SanoAI.
-          Use the context below to answer questions about SanoAI's mission, origin, team and services.
-          If the user asks something unrelated, respond with: 'I can only answer questions about SanoAI's goals, story, or features.'
-
-          Context:
-          ${aboutData}
-        `.trim()
-      },
-        {
-          role: "user",
-          content: message
-        }
-      ];
-
-    const response = await puter.ai.chat(messages);
-    const reply =
-    response?.completion || response?.text || "Sorry, I couldn't find the answer to that. Try asking about SanoAI's mission or services.";
-
+    if (["hi", "hello", "hey"].includes(message)) {
+      reply = "Hello! Ask me anything about our mission, vision, or how we started.";
       chatBox.innerHTML += `<div><strong>SanoAI:</strong> ${reply}</div>`;
       chatBox.scrollTop = chatBox.scrollHeight;
-    };
-  </script>
+      return;
+    } else if (message.includes("what is sanoai")) {
+      reply = "SanoAI is a health and wellness AI assistant designed to help users understand themselves, build emotional awareness, and track their mental health over time.";
+    } else if (message.includes("what is our mission")) {
+      reply = "Our mission is to empower individuals with intelligent tools that promote self-awareness, mental clarity, and personal growth.";
+    } else if (message.includes("what is our vision")) {
+      reply = "Our vision is to make mental wellness more approachable, personal, and consistent through accessible technology.";
+    } else if (message.includes("why sanoai") || message.includes("who is it for")) {
+      reply = "SanoAI is perfect for introspective people seeking self-improvement or struggling with journaling consistency. It's also great for therapists and coaches.";
+    } else if (message.includes("get started")) {
+      reply = "Just click the “Sign Up” button on our homepage to create your account and unlock the full features of SanoAI’s journaling assistant.";
+    } else if (
+      message.includes("who is the founder") ||
+      message.includes("who made sanoai") ||
+      message.includes("team")
+    ) {
+      reply = "SanoAI was founded by a team with Vince Munene as the Lead and Co-Founders Tabitha, Joy-Mitchel and Natasha.";
+    }
+
+    chatBox.innerHTML += `<div><strong>SanoAI:</strong> ${reply}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  };
+</script>
+
+
+
   </div>
 
   <div class="section">

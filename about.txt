@@ -3,7 +3,7 @@ Name: SanoAI
 
 Founder: Vince Munene
 
-Mission: Our mission is to Our mission is to empower individuals with intelligent tools that promote self-awareness, mental clarity, and personal growth.
+Mission: Our mission is to empower individuals with intelligent tools that promote self-awareness, mental clarity, and personal growth.
 
 Vision: Our vision is to make mental wellness more approachable, personal, and consistent through accessible technology. We believe that self-understanding is the key to better decisions, deeper relationships, and a healthier life.
 
